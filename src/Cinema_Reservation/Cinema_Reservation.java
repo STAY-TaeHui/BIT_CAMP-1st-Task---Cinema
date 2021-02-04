@@ -60,12 +60,14 @@ public class Cinema_Reservation {
 
 
 
-            String seatNum = sc.nextLine();
+            String seatNum = sc.nextLine();       //밑에서 2번눌렀을때 sc.nextLine()에 ""가 들어가는 에러
             try{
                 String [] row_col = seatNum.split("-");
+                if(row_col.length<2){
+                    throw new Exception();
+                }
                 input_Row = Integer.parseInt(row_col[0]);
                 input_Col = Integer.parseInt(row_col[1]);
-                throw new Exception();
             }
             catch(Exception e){
                 System.out.println("좌석번호를 확인하고 입력해주세요...");
